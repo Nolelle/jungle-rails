@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   # These routes will be for signup. The first renders a form in the browse, the second will
   # receive the form and create a user in our database using the data given to us by the user.
   resources :users, only: %i[new create]
-  resources :sessions, only: %i[new create destroy]
+  resources :sessions, only: %i[new create]
+  get '/logout' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

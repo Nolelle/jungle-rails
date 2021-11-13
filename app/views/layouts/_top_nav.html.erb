@@ -48,7 +48,7 @@
           <% end %>
         </li>
         <% if current_user %>
-          Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/sessions/destroy', method: :delete  %>
+          Signed in as <%= current_user.first_name %> | <%= link_to "Logout", '/logout' %>
         <% else %>
           <%= link_to 'Login', '/sessions/new' %> | <%= link_to 'Signup', '/users/new' %>
         <% end %>
