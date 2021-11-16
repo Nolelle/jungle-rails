@@ -12,7 +12,7 @@ RSpec.describe Product, type: :model do
           quantity: 1,
           category: @category,
         )
-      expect(expect(@product.errors.any?).to eq(false))
+      expect(@product.errors.any?).to eq(false)
     end
     it 'checks if a error message is present when there is no name field' do
       @category = Category.create(name: 'Shoes')
