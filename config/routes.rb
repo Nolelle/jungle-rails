@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   root to: 'products#index'
+  resources :sessions, only: %i[new create destroy]
+  resources :users, only: %i[new create]
+  get '/logout' => 'sessions#destroy'
+
+  namespace :admin do
+    root to: 'dashboard#show'
+    resources :products, except: %i[edit update show]
+    resources :categories, only: %i[index create new]
+  end
+
+  # These routes will be for signup. The first renders a form in the browse, the second will
+  # receive the form and create a user in our database using the data given to us by the user.
 
   resources :products, only: %i[index show]
   resources :categories, only: [:show]
@@ -11,18 +23,6 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: %i[create show]
-
-  namespace :admin do
-    root to: 'dashboard#show'
-    resources :products, except: %i[edit update show]
-    resources :categories, only: %i[index create new]
-  end
-
-  # These routes will be for signup. The first renders a form in the browse, the second will
-  # receive the form and create a user in our database using the data given to us by the user.
-  resources :users, only: %i[new create]
-  resources :sessions, only: %i[new create]
-  get '/logout' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
