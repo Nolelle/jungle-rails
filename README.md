@@ -2,7 +2,7 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
-!['Screenshot of Home Page]()
+!['Screenshot of Home Page](https://github.com/Nolelle/jungle-rails/blob/master/docs/Jungle%20Home%20Page%20.png?raw=true)
 
 ## Additional Steps for Apple M1 Machines
 
